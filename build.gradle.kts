@@ -79,7 +79,7 @@ tasks.withType<JavaCompile> {
 tasks.publishPlugin{
     // 在 gradle.properties 文件中设置 intellijPublishToken 属性存储 Token 信息
     // https://plugins.jetbrains.com/docs/marketplace/plugin-upload.html
-    token.set(intellijPublishToken as String)
+    token.set(intellijPublishToken as String?)
 }
 
 tasks.patchPluginXml {
