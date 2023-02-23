@@ -39,5 +39,5 @@ This plugin supports `beetl`/`freemarker`/`velocity` code templates of three tem
 **请查看 <a href="https://github.com/houkunlin/Database-Generator/blob/master/doc/upgrade-2.0.0.md">代码模板升级指南</a> ，和查看详细的编写 <a href="https://github.com/houkunlin/Database-Generator/blob/master/doc/template-document.md">模板变量文档</a> ，或者查看涵盖所有变量使用的代码模板 <a href="https://github.com/houkunlin/Database-Generator/blob/master/src/main/resources/templates/all-variable.ftl">all-variable.ftl</a>**
 
 <br><br>
-Author: HouKunLin<br>
-Email: houkunlin@aliyun.com
+Author: TSIE-SSC<br>
+Email: lvwei@tsintergy.com

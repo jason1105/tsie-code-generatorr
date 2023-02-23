@@ -12,8 +12,8 @@ val intellijVersion = findProperty("intellijVersion") ?: System.getenv("intellij
 // intellij 上传插件 Token
 val intellijPublishToken = findProperty("intellijPublishToken") ?: System.getenv("intellijPublishToken")
 
-group = "com.github.houkunlin"
-version = "2.8.0"
+group = "com.tsintergy"
+version = "0.1.0"
 
 println(">>> PROJECT INFO : $group --> { intellij-version = IU-$intellijVersion, plugin-version = $version }")
 
