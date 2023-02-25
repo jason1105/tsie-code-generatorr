@@ -11,7 +11,7 @@
 
 
 
-[更新日志](./doc/changeNotes.md) | [模板变量说明](./doc/template-document.md) | [旧版模板升级2.0.0插件版本指南](./doc/upgrade-2.0.0.md) | [插件截图](./doc/images.md) | [所有变量使用 all-variable.ftl](http://git.tsintergy.com:8070/ssc/code-generator/tsie-code-generator/blob/master/src/main/resources/templates/all-variable.ftl)
+[模板变量说明](./doc/template-document.md) | [插件截图](./doc/images.md) | [所有变量使用 all-variable.ftl](http://git.tsintergy.com:8070/ssc/code-generator/tsie-code-generator/blob/master/src/main/resources/templates/all-variable.ftl)
 
 
 
@@ -49,10 +49,4 @@
 ![](./doc/assets/images_11.png)
 
 
-
-
-
-## 参考代码
-- better-mybatis-generator https://github.com/kmaster/better-mybatis-generator
-- EasyCode https://github.com/makejavas/EasyCode
 
