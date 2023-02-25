@@ -1,4 +1,4 @@
-package com.houkunlin;
+package com.tsintergy.ssc;
 
 import com.intellij.ide.plugins.PluginManager;
 import com.intellij.ide.plugins.PluginManagerCore;
