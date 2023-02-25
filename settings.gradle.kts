@@ -1,2 +1,2 @@
-rootProject.name = "Database Generator"
+rootProject.name = "TSIE Code Generator"
 
