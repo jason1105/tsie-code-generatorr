@@ -16,8 +16,6 @@ import java.util.Map;
 /**
  * Beetl 模板引擎
  *
- * @author HouKunLin
- * @date 2020/7/5 0005 5:42
  */
 public class BeetlUtils {
     private final GroupTemplate groupTemplateString;

@@ -11,8 +11,6 @@ import java.util.List;
 /**
  * 保存文件信息
  *
- * @author HouKunLin
- * @date 2020/4/3 0003 20:52
  */
 public class SaveFilePath {
     /**

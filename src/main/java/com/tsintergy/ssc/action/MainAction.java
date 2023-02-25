@@ -15,8 +15,6 @@ import com.intellij.psi.PsiElement;
 /**
  * 操作入口
  *
- * @author HouKunLin
- * @date 2020/4/6 0006 18:08
  */
 public class MainAction extends AnAction {
 

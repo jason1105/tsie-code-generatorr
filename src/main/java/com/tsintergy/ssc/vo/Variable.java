@@ -3,8 +3,6 @@ package com.tsintergy.ssc.vo;
 /**
  * 模板传递给程序的变量信息
  *
- * @author HouKunLin
- * @date 2020/7/5 0005 0:58
  */
 public class Variable {
     public static String filename;

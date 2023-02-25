@@ -14,8 +14,6 @@ import org.jetbrains.annotations.Nullable;
 /**
  * 配置 Service
  *
- * @author HouKunLin
- * @date 2020/8/18 0018 17:17
  */
 @Data
 @State(name = "com.tsintergy.ssc.database.generator.config.ConfigService",

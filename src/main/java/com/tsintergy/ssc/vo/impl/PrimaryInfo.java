@@ -10,8 +10,6 @@ import java.util.stream.Collectors;
 /**
  * 主键信息
  *
- * @author HouKunLin
- * @date 2020/7/18 0018 21:49
  */
 @Getter
 public class PrimaryInfo {

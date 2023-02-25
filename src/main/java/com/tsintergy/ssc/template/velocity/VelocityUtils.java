@@ -15,8 +15,6 @@ import java.util.Properties;
 /**
  * Velocity 模板工具
  *
- * @author HouKunLin
- * @date 2020/7/5 0005 3:49
  */
 public class VelocityUtils {
 

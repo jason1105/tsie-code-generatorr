@@ -9,8 +9,6 @@ import java.io.*;
 /**
  * 模板工具类
  *
- * @author HouKunLin
- * @date 2020/4/3 0003 16:14
  */
 public class FreemarkerUtils {
     private final Configuration configuration;

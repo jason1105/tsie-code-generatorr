@@ -11,8 +11,6 @@ import java.util.Map;
 /**
  * 模板工具
  *
- * @author HouKunLin
- * @date 2020/5/28 0028 1:35
  */
 public class TemplateUtils {
     private final VelocityUtils velocityUtils;

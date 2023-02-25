@@ -23,8 +23,6 @@ import java.util.function.Consumer;
 /**
  * 插件工具类
  *
- * @author HouKunLin
- * @date 2020/11/17 0017 16:32
  */
 @Getter
 public class PluginUtils {
