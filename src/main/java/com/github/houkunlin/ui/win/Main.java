@@ -108,7 +108,7 @@ public class Main extends JFrame {
         }
     };
     /**
-     * 内容Tab标签
+     * 内容Tab标签, 与 Main.form 中的 tableTabbedPane 对应
      */
     private JTabbedPane tableTabbedPane;
     /**
@@ -116,7 +116,7 @@ public class Main extends JFrame {
      */
     private JButton finishButton;
     /**
-     * 面板：内容面板
+     * 面板：内容面板, 与 Main.form 中的 content 对应
      */
     private JPanel content;
     private JButton refreshConfig;

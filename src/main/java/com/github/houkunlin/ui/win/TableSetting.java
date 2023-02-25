@@ -18,16 +18,21 @@ import java.util.List;
 @Data
 public class TableSetting implements IWindows {
     /**
-     * 面板：顶级内容面板
+     * 面板：顶级内容面板  bind to TableSetting.form
      */
     private JPanel content;
     /**
-     * 标签：包含多个数据库表的标签界面
+     * 标签：包含多个数据库表的标签界面 bind to TableSetting.form
      */
     private JTabbedPane tableTabbedPane;
     private PsiElement[] psiElements;
     private List<TablePanel> tablePanels = new ArrayList<>();
 
+    /**
+     * Construct a new TableSetting object.
+     *
+     * @param psiElements
+     */
     public TableSetting(PsiElement[] psiElements) {
         this.psiElements = psiElements;
         for (PsiElement psiElement : psiElements) {
@@ -40,6 +45,11 @@ public class TableSetting implements IWindows {
         }
     }
 
+    /**
+     * Export all tables that is saved in each tabbed panel separately
+     *
+     * @return
+     */
     public List<RootModel> getRootModels() {
         List<RootModel> rootModels = new ArrayList<>();
         for (TablePanel tablePanel : tablePanels) {
