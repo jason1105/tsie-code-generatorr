@@ -11,14 +11,14 @@
 
     <extensions defaultExtensionNs="com.intellij">
         <!-- Add your extensions here -->
-        <projectService serviceImplementation="com.github.houkunlin.config.ConfigService"/>
+        <projectService serviceImplementation="com.tsintergy.ssc.config.ConfigService"/>
     </extensions>
 
     <actions>
         <!-- Add your actions here -->
         <action
-                id="com.github.houkunlin.action.MainAction"
-                class="com.github.houkunlin.action.MainAction"
+                id="com.tsintergy.ssc.action.MainAction"
+                class="com.tsintergy.ssc.action.MainAction"
                 text="Generator Code"
                 description="Generator code">
             <add-to-group group-id="DatabaseViewPopupMenu" anchor="first"/>

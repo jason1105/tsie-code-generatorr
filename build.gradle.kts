@@ -93,7 +93,7 @@ tasks.patchPluginXml {
     }
     outputs.upToDateWhen { false }
     dependsOn("markdownToHtml")
-    pluginId.set("com.github.houkunlin.database.generator")
+    pluginId.set("com.tsintergy.ssc.database.generator")
     //最小支持版本
     sinceBuild.set("193")
     // 最大支持版本

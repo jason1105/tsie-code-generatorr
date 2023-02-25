@@ -18,7 +18,7 @@
 
 ## 模板内变量说明
 ### `settings` 基础设置信息变量
-Type: `Object` Class: `com.github.houkunlin.config.Settings`
+Type: `Object` Class: `config.com.tsintergy.ssc.Settings`
 
 |字段/方法|类型|说明|
 | ----|----|----|
@@ -39,7 +39,7 @@ Type: `Object` Class: `com.github.houkunlin.config.Settings`
 
 ### `developer` 开发者信息变量
 
-Type: `Object` Class: `com.github.houkunlin.config.Developer`
+Type: `Object` Class: `config.com.tsintergy.ssc.Developer`
 
 |字段/方法|类型|说明|
 | ----|----|----|
@@ -50,7 +50,7 @@ Type: `Object` Class: `com.github.houkunlin.config.Developer`
 
 ### `gen` 当前文件类型配置对象
 
-Type: `Object` Class: `com.github.houkunlin.vo.Variable`
+Type: `Object` Class: `vo.com.tsintergy.ssc.Variable`
 
 |字段/方法|类型|说明|
 | ----|----|----|
@@ -97,7 +97,7 @@ Type: `Object` Class: `com.github.houkunlin.vo.Variable`
 
 ### `table` 数据库表信息变量
 
-Type: `Object` Class: `com.github.houkunlin.vo.impl.TableImpl` 实现了 `com.github.houkunlin.vo.ITable` 接口
+Type: `Object` Class: `impl.vo.com.tsintergy.ssc.TableImpl` 实现了 `vo.com.tsintergy.ssc.ITable` 接口
 
 |字段/方法|类型|说明|
 | ----|----|----|
@@ -109,7 +109,7 @@ Type: `Object` Class: `com.github.houkunlin.vo.impl.TableImpl` 实现了 `com.gi
 
 ### `columns` 数据库表字段列表变量
 
-Type: `List` Class: `com.github.houkunlin.vo.impl.TableColumnImpl` 实现了 `com.github.houkunlin.vo.ITableColumn` 接口
+Type: `List` Class: `impl.vo.com.tsintergy.ssc.TableColumnImpl` 实现了 `vo.com.tsintergy.ssc.ITableColumn` 接口
 
 |字段/方法|类型|说明|
 | ----|----|----|
@@ -126,7 +126,7 @@ Type: `List` Class: `com.github.houkunlin.vo.impl.TableColumnImpl` 实现了 `co
 
 ### `entity` 实体类信息变量
 
-Type: `Object` Class: `com.github.houkunlin.vo.impl.EntityImpl` 实现了 `com.github.houkunlin.vo.IEntity` 接口
+Type: `Object` Class: `impl.vo.com.tsintergy.ssc.EntityImpl` 实现了 `vo.com.tsintergy.ssc.IEntity` 接口
 
 |字段/方法|类型|说明|
 | ----|----|----|
@@ -139,7 +139,7 @@ Type: `Object` Class: `com.github.houkunlin.vo.impl.EntityImpl` 实现了 `com.g
 
 ### `fields` 实体对象字段列表信息变量
 
-Type: `List` Class: `com.github.houkunlin.vo.impl.EntityFieldImpl` 实现了 `com.github.houkunlin.vo.IEntityField` 接口
+Type: `List` Class: `impl.vo.com.tsintergy.ssc.EntityFieldImpl` 实现了 `vo.com.tsintergy.ssc.IEntityField` 接口
 
 |字段/方法|类型|说明|
 | ----|----|----|
@@ -155,7 +155,7 @@ Type: `List` Class: `com.github.houkunlin.vo.impl.EntityFieldImpl` 实现了 `co
 
 ### `primary` 主键Java字段、数据库列对象信息变量
 
-Type: `Object` Class: `com.github.houkunlin.vo.impl.PrimaryInfo` 
+Type: `Object` Class: `impl.vo.com.tsintergy.ssc.PrimaryInfo` 
 
 | 字段/方法 | 类型                     | 说明                                                         |
 | --------- | ------------------------ | ------------------------------------------------------------ |
@@ -169,7 +169,7 @@ Type: `Object` Class: `com.github.houkunlin.vo.impl.PrimaryInfo`
 ## 模板其他相关对象说明
 
 ### `IName` 名称接口
-Class: `com.github.houkunlin.vo.IName`
+Class: `vo.com.tsintergy.ssc.IName`
 
 |字段/方法|类型|说明|
 | ----|----|----|
@@ -181,7 +181,7 @@ Class: `com.github.houkunlin.vo.IName`
 
 ### `EntityName` 实体类名称对象（不含后缀）
 
-Class: `com.github.houkunlin.vo.impl.EntityName` 实现了 `com.github.houkunlin.vo.IName` 接口
+Class: `impl.vo.com.tsintergy.ssc.EntityName` 实现了 `vo.com.tsintergy.ssc.IName` 接口
 
 |字段/方法|类型|说明|
 | ----|----|----|
@@ -199,7 +199,7 @@ Class: `com.github.houkunlin.vo.impl.EntityName` 实现了 `com.github.houkunlin
 
 ### `EntityNameInfo` 实体类名称信息对象（含后缀）
 
-Class: `com.github.houkunlin.vo.impl.EntityNameInfo` 实现了 `com.github.houkunlin.vo.IName` 接口
+Class: `impl.vo.com.tsintergy.ssc.EntityNameInfo` 实现了 `vo.com.tsintergy.ssc.IName` 接口
 
 | 字段/方法    | 类型   | 说明                                       |
 | ------------ | ------ | ------------------------------------------ |
@@ -212,7 +212,7 @@ Class: `com.github.houkunlin.vo.impl.EntityNameInfo` 实现了 `com.github.houku
 
 ### `EntityPackage` 实体类包对象
 
-Class: `com.github.houkunlin.vo.impl.EntityPackage`
+Class: `impl.vo.com.tsintergy.ssc.EntityPackage`
 
 |字段/方法|类型|说明|
 | ----|----|----|
@@ -228,7 +228,7 @@ Class: `com.github.houkunlin.vo.impl.EntityPackage`
 
 ### `EntityPackageInfo` 实体类包信息对象
 
-Class: `com.github.houkunlin.vo.impl.EntityPackageInfo`
+Class: `impl.vo.com.tsintergy.ssc.EntityPackageInfo`
 
 |字段/方法|类型|说明|
 | ----|----|----|
@@ -240,7 +240,7 @@ Class: `com.github.houkunlin.vo.impl.EntityPackageInfo`
 
 ### `FieldNameInfo` 字段名称信息对象
 
-Class: `com.github.houkunlin.vo.impl.FieldNameInfo` 实现了 `com.github.houkunlin.vo.IName` 接口
+Class: `impl.vo.com.tsintergy.ssc.FieldNameInfo` 实现了 `vo.com.tsintergy.ssc.IName` 接口
 
 | 字段/方法    | 类型   | 说明                           |
 | ------------ | ------ | ------------------------------ |

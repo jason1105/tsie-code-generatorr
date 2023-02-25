@@ -8,7 +8,7 @@ import com.intellij.openapi.extensions.PluginId;
 public class TempCode {
     public void test() {
         // 获得插件信息
-        PluginManagerCore.getPlugin(PluginId.getId("com.github.houkunlin.database.generator"));
+        PluginManagerCore.getPlugin(PluginId.getId("com.tsintergy.ssc.database.generator"));
         // 获得所有插件列表
         PluginManager.getPlugins();
         // 获得IDEA项目配置路径
