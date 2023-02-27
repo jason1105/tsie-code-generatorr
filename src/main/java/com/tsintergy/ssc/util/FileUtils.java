@@ -56,7 +56,7 @@ public class FileUtils {
      * @return 该文件对象的目录
      */
     public PsiDirectory getPsiDirectory(Project project, File saveFile) {
-        String filePath = saveFile.getParent();
+        String filePath = "\\" + saveFile.getParent();
         // PSI对象管理器
         PsiManager psiManager = PsiManager.getInstance(project);
         VirtualFile directory = LocalFileSystem.getInstance().findFileByPath(filePath);
