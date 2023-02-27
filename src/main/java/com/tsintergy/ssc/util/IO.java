@@ -1,9 +1,11 @@
 package com.tsintergy.ssc.util;
 
-import java.io.ByteArrayOutputStream;
+import java.io.BufferedReader;
 import java.io.Closeable;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 
 public class IO {
     /**
@@ -36,21 +38,18 @@ public class IO {
         if (inputStream == null) {
             return "";
         }
-        byte[] bytes = new byte[1024];
-        int len;
-        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-        try {
-            while ((len = inputStream.read(bytes)) != -1) {
-                outputStream.write(bytes, 0, len);
+        StringBuilder builder = new StringBuilder();
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8))) {
+            while (reader.ready()) {
+                builder.append(reader.readLine());
+                builder.append("\n");
             }
-            outputStream.flush();
-            return outputStream.toString();
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
-            close(outputStream, inputStream);
+            close(inputStream);
         }
-        return "";
+        return builder.toString();
     }
 
     /**
