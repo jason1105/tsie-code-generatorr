@@ -126,6 +126,12 @@ public class Main extends JFrame {
         this.settings = configService.getSettings();
         this.developer = configService.getDeveloper();
         this.options = configService.getOptions();
+
+        this.javaPathField.setText(settings.getJavaPath());
+        this.sourcesPathField.setText(settings.getSourcesPath());
+        this.projectPathField.setText(settings.getProjectPath());
+
+
         baseSetting = new BaseSetting(settings, developer, options);
         selectTemplate = new SelectTemplate();
         tableSetting = new TableSetting(psiElements);
@@ -174,7 +180,7 @@ public class Main extends JFrame {
                 jButton.setEnabled(false);
                 ConfigService  configService = ConfigService.getInstance(project);
                 if (configService != null) {
-                    configService.refresh();
+                    configService.refresh(); // 从配置文件 config.yml 中读取配置信息
                     refreshMainConfig();
                     baseSetting.initConfig();
                 }

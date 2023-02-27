@@ -16,7 +16,7 @@ import org.jetbrains.annotations.Nullable;
  *
  */
 @Data
-@State(name = "com.tsintergy.ssc.database.generator.config.ConfigService",
+@State(name = "com.tsintergy.ssc.config.ConfigService",
     defaultStateAsResource = true,
     storages = {@Storage("database-generator-config.xml")})
 public class ConfigService implements PersistentStateComponent<ConfigService> {
