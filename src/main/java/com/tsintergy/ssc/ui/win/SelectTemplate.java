@@ -1,5 +1,6 @@
 package com.tsintergy.ssc.ui.win;
 
+import com.tsintergy.ssc.config.ConfigService;
 import com.tsintergy.ssc.ui.win.tree.CheckBoxTreeCellRenderer;
 import com.tsintergy.ssc.ui.win.tree.CheckBoxTreeNode;
 import com.tsintergy.ssc.ui.win.tree.CheckBoxTreeNodeSelectionListener;
@@ -11,13 +12,13 @@ import javax.swing.tree.DefaultTreeModel;
 import javax.swing.tree.TreeNode;
 import javax.swing.tree.TreePath;
 import java.io.File;
+import java.util.Arrays;
 import java.util.Enumeration;
 import java.util.List;
 import java.util.stream.Collectors;
 
 /**
  * 模板选择界面
- *
  */
 public class SelectTemplate implements IWindows {
     private final CheckBoxTreeNode root;
@@ -29,6 +30,8 @@ public class SelectTemplate implements IWindows {
      * 面板：顶级内容面板
      */
     private JPanel content;
+
+    private final ConfigService configService = PluginUtils.findConfigService();
 
     public SelectTemplate() {
         File extensionPluginPath = PluginUtils.getExtensionPluginDirFile(PluginUtils.TEMPLATE_DIR);
@@ -59,7 +62,37 @@ public class SelectTemplate implements IWindows {
         tree.setCellRenderer(new CheckBoxTreeCellRenderer());
         tree.setShowsRootHandles(true);
 
-        expandDepthNode(new TreePath(root), true, 2);
+        expandDepthNode(new TreePath(root), true, 3);
+        initSelected();
+    }
+
+    /**
+     * Restore the state of selected from configService
+     */
+    private void initSelected() {
+        iterateNodes(root);
+    }
+
+    private void iterateNodes(DefaultMutableTreeNode root) {
+
+        // the key used for saving state in the set of configService
+        final String key = Arrays.stream(root.getUserObjectPath()).map(Object::toString)
+            .collect(Collectors.joining("."));
+
+        final var isSelected = configService.getNodePaths().contains(key);
+
+        /*
+        setSelected() method will cause cascading update of the sub-nodes.
+         */
+        if (isSelected) {
+            ((CheckBoxTreeNode)root).setSelected(true);
+        }
+
+        Enumeration children = root.children();
+        while (children.hasMoreElements()) {
+            DefaultMutableTreeNode childNode = (DefaultMutableTreeNode)children.nextElement();
+            iterateNodes(childNode);
+        }
     }
 
     /**
@@ -72,10 +105,10 @@ public class SelectTemplate implements IWindows {
         if (depth-- <= 0) {
             return;
         }
-        TreeNode node = (TreeNode) parent.getLastPathComponent();
+        TreeNode node = (TreeNode)parent.getLastPathComponent();
         if (node.getChildCount() >= 0) {
             for (Enumeration e = node.children(); e.hasMoreElements(); ) {
-                TreeNode n = (TreeNode) e.nextElement();
+                TreeNode n = (TreeNode)e.nextElement();
                 TreePath path = parent.pathByAddingChild(n);
                 expandDepthNode(path, expand, depth);
             }
@@ -88,7 +121,7 @@ public class SelectTemplate implements IWindows {
     }
 
     private void getTreeData(DefaultMutableTreeNode treeNode, File[] files) {
-        if (files == null || files.length == 0) {
+        if (files == null) {
             return;
         }
         for (File file : files) {
@@ -111,10 +144,7 @@ public class SelectTemplate implements IWindows {
 
     public List<File> getAllSelectFile() {
         List<CheckBoxTreeNode> allSelectNodes = root.getAllSelectNodes();
-        return allSelectNodes
-                .stream()
-                .filter(item -> item.getUserObject() instanceof File)
-                .map(item -> (File) item.getUserObject())
-                .collect(Collectors.toList());
+        return allSelectNodes.stream().filter(item -> item.getUserObject() instanceof File)
+            .map(item -> (File)item.getUserObject()).collect(Collectors.toList());
     }
 }

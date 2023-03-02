@@ -1,7 +1,5 @@
 package com.tsintergy.ssc.util;
 
-import com.tsintergy.ssc.config.ConfigVo;
-import com.tsintergy.ssc.model.TableColumnType;
 import com.intellij.openapi.application.PathManager;
 import com.intellij.openapi.progress.ProgressIndicator;
 import com.intellij.openapi.progress.ProgressManager;
@@ -10,6 +8,9 @@ import com.intellij.openapi.project.Project;
 import com.intellij.openapi.ui.Messages;
 import com.intellij.openapi.vfs.LocalFileSystem;
 import com.intellij.openapi.vfs.VirtualFile;
+import com.tsintergy.ssc.config.ConfigService;
+import com.tsintergy.ssc.config.ConfigVo;
+import com.tsintergy.ssc.model.TableColumnType;
 import lombok.Getter;
 import org.jetbrains.annotations.NotNull;
 import org.yaml.snakeyaml.Yaml;
@@ -22,7 +23,6 @@ import java.util.function.Consumer;
 
 /**
  * 插件工具类
- *
  */
 @Getter
 public class PluginUtils {
@@ -156,7 +156,8 @@ public class PluginUtils {
             return loadConfig().getTypes();
         } catch (Exception e) {
             e.printStackTrace();
-            Messages.showMessageDialog(e.getMessage(), "解析默认类型映射配置失败(严重影响功能)", Messages.getErrorIcon());
+            Messages.showMessageDialog(e.getMessage(), "解析默认类型映射配置失败(严重影响功能)",
+                Messages.getErrorIcon());
             return new TableColumnType[0];
         }
     }
@@ -183,7 +184,8 @@ public class PluginUtils {
                         virtualFile.refresh(false, true);
                     }
                 };
-                refresh.accept(LocalFileSystem.getInstance().findFileByPath(Objects.requireNonNull(project.getBasePath())));
+                refresh.accept(
+                    LocalFileSystem.getInstance().findFileByPath(Objects.requireNonNull(project.getBasePath())));
                 refresh.accept(project.getProjectFile());
                 refresh.accept(project.getWorkspaceFile());
             }
@@ -197,7 +199,8 @@ public class PluginUtils {
         ProgressManager.getInstance().run(new Task.Backgroundable(project, "刷新插件工作空间 ...") {
             @Override
             public void run(@NotNull ProgressIndicator indicator) {
-                VirtualFile virtualFile = LocalFileSystem.getInstance().findFileByIoFile(PluginUtils.getExtensionPluginDir());
+                VirtualFile virtualFile = LocalFileSystem.getInstance()
+                    .findFileByIoFile(PluginUtils.getExtensionPluginDir());
                 if (virtualFile != null) {
                     virtualFile.refresh(false, true);
                 }
@@ -213,7 +216,13 @@ public class PluginUtils {
             new SyncResources().run();
         } catch (Exception error) {
             error.printStackTrace();
-            Messages.showErrorDialog("插件初始化错误，可能导致无法使用，主要涉及到插件配置 JSON 文件和插件代码模板文件。\n\n" + error.getMessage(), "初始化错误");
+            Messages.showErrorDialog("插件初始化错误，可能导致无法使用，主要涉及到插件配置 JSON 文件和插件代码模板文件。\n\n"
+                + error.getMessage(), "初始化错误");
         }
+    }
+
+    public static ConfigService findConfigService() {
+        Project project = PluginUtils.getProject();
+        return ConfigService.getInstance(project);
     }
 }
