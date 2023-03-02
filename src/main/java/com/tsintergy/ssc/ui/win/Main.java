@@ -157,6 +157,7 @@ public class Main extends JFrame {
         pack();
         setVisible(true);
         refreshConfig.setEnabled(true);
+        refreshConfig.setIcon(DatabaseIcons.REFRESH);
     }
 
     /**

@@ -20,7 +20,8 @@
                 id="com.tsintergy.ssc.action.MainAction"
                 class="com.tsintergy.ssc.action.MainAction"
                 text="Generator Code"
-                description="Generator code">
+                description="Generator code"
+                icon="SdkIcons.sdk_default_icon">
             <add-to-group group-id="DatabaseViewPopupMenu" anchor="first"/>
         </action>
     </actions>
