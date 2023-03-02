@@ -12,10 +12,10 @@ settings:
   daoSuffix: Repository
   serviceSuffix: Service
   controllerSuffix: Controller
-  entityPackage: com.example.entity
-  daoPackage: com.example.repository
-  servicePackage: com.example.service
-  controllerPackage: com.example.controller
+  entityPackage: com.tsintergy.entity
+  daoPackage: com.tsintergy.repository
+  servicePackage: com.tsintergy.service
+  controllerPackage: com.tsintergy.controller
   xmlPackage: mapper
 types:
   - shortName: Object

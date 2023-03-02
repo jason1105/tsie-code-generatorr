@@ -4,7 +4,6 @@ import lombok.Data;
 
 /**
  * 设置信息
- *
  */
 @Data
 public class Settings {
@@ -39,19 +38,19 @@ public class Settings {
     /**
      * Entity 包名
      */
-    private String entityPackage = "com.example.entity";
+    private String entityPackage = "com.tsintergy.entity";
     /**
      * Dao 包名
      */
-    private String daoPackage = "com.example.repository";
+    private String daoPackage = "com.tsintergy.repository";
     /**
      * Service 包名
      */
-    private String servicePackage = "com.example.service";
+    private String servicePackage = "com.tsintergy.service";
     /**
      * Controller 包名
      */
-    private String controllerPackage = "com.example.controller";
+    private String controllerPackage = "com.tsintergy.controller";
     /**
      * Mapper XML 包名
      */
