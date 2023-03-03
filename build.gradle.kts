@@ -85,12 +85,12 @@ tasks.publishPlugin{
 tasks.patchPluginXml {
     val notes = file("$buildDir/gen-html/changeNotes.html")
     val desc = file("$buildDir/gen-html/description.html")
-    if (notes.exists() && notes.isFile) {
-        changeNotes.set(notes.readText())
-    }
-    if (desc.exists() && desc.isFile) {
-        pluginDescription.set(desc.readText())
-    }
+//    if (notes.exists() && notes.isFile) {
+//        changeNotes.set(notes.readText())
+//    }
+//    if (desc.exists() && desc.isFile) {
+//        pluginDescription.set(desc.readText())
+//    }
     outputs.upToDateWhen { false }
     dependsOn("markdownToHtml")
     pluginId.set("com.tsintergy.ssc.database.generator")
