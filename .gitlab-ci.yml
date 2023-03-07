@@ -16,6 +16,8 @@ before_script:
 
 build:
   stage: build
+  tags:
+    - pages-share
   script: ./gradlew sonarqube \
       -Dsonar.projectKey=ssc_code-generator_tsie-code-generator_AYa7blWWVaQfVjXapow2 \
       -Dsonar.host.url=http://9000.gr5e4fc6.01pxwbcl.57488d.grapps.cn \
