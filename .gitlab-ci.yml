@@ -1,0 +1,23 @@
+.job_common_config: &job_common_config
+  tags:
+    - pages-share
+
+variables:
+  MAVEN_OPTS: >-
+    -Dmaven.repo.local=$CI_PROJECT_DIR/.m2/repository
+  MAVEN_CLI_OPTS: >-
+    --batch-mode
+
+build:
+  <<: *job_common_config
+  stage: build
+  image: "maven:3-jdk-8"
+  cache:
+    key: tsie-scc-common
+    paths:
+      - .m2/repository/
+  script:
+    - mvn sonar:sonar \
+       -Dsonar.projectKey=ssc_code-generator_tsie-code-generator_AYa7blWWVaQfVjXapow2 \
+       -Dsonar.host.url=http://9000.gr5e4fc6.01pxwbcl.57488d.grapps.cn \
+       -Dsonar.login=77c9036fbfc330de78bc67ae3dd0b1beaf62bb19
