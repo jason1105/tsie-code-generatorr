@@ -42,7 +42,7 @@
             <constraints/>
             <properties>
               <preferredSize width="240" height="29"/>
-              <text value="com.example.entity"/>
+              <text value="com.tsintergy.entity"/>
             </properties>
           </component>
           <component id="6d4b6" class="javax.swing.JButton" binding="selectEntityPackageButton">
@@ -83,7 +83,7 @@
             <constraints/>
             <properties>
               <preferredSize width="240" height="29"/>
-              <text value="com.example.repository"/>
+              <text value="com.tsintergy.repository"/>
             </properties>
           </component>
           <component id="c435d" class="javax.swing.JButton" binding="selectDaoPackageButton">
@@ -137,7 +137,7 @@
             <constraints/>
             <properties>
               <preferredSize width="240" height="29"/>
-              <text value="com.example.service"/>
+              <text value="com.tsintergy.service"/>
             </properties>
           </component>
           <component id="817e7" class="javax.swing.JButton" binding="selectServicePackageButton">
@@ -178,7 +178,7 @@
             <constraints/>
             <properties>
               <preferredSize width="240" height="29"/>
-              <text value="com.example.controller"/>
+              <text value="com.tsintergy.controller"/>
             </properties>
           </component>
           <component id="d0d80" class="javax.swing.JButton" binding="selectControllerPackageButton">

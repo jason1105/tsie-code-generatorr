@@ -1,6 +1,21 @@
 <idea-plugin require-restart="false">
     <name>TSIE Database Generator</name>
-    <vendor email="lvwei@tsintergy.com" url="http://git.tsintergy.com:8070/ssc/code-generator/code-generator">TSIE-SSC</vendor>
+    <vendor email="lvwei@tsintergy.com" url="http://git.tsintergy.com:8070/ssc/code-generator/code-generator">TSIE-SSC
+    </vendor>
+
+    <description>
+      <![CDATA[
+        This is a code generator that relies on the IDEA Database tool. It generates Java code based on database table structures and provides a set of simple code templates for CRUD operations. Users can also create their own custom templates to generate frontend or other related code.
+
+        The plugin includes an "all-variable.ftl" template file that illustrates how all variables are used and their corresponding results.
+
+        This plugin supports three template engines - Beetl, Freemarker, and Velocity - and users can choose which engine to use based on the file extension (btl/ftl/vm). For information on creating custom templates, please refer to the template variable documentation or check out the "all-variable.ftl" code template.
+
+        This plugin is based on the open source project Database-Generator, and we express our gratitude to the creators.
+
+        Email: lvwei@tsintergy.com
+      ]]>
+    </description>
 
     <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
          on how to target different products -->
