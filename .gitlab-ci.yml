@@ -1,23 +1,29 @@
-.job_common_config: &job_common_config
-  tags:
-    - pages-share
+# This file is a template, and might need editing before it works on your project.
+# This is the Gradle build system for JVM applications
+# https://gradle.org/
+# https://github.com/gradle/gradle
+image: gradle:alpine
 
+# Disable the Gradle daemon for Continuous Integration servers as correctness
+# is usually a priority over speed in CI environments. Using a fresh
+# runtime for each build is more reliable since the runtime is completely
+# isolated from any previous builds.
 variables:
-  MAVEN_OPTS: >-
-    -Dmaven.repo.local=$CI_PROJECT_DIR/.m2/repository
-  MAVEN_CLI_OPTS: >-
-    --batch-mode
+  GRADLE_OPTS: "-Dorg.gradle.daemon=false"
+
+before_script:
+  - export GRADLE_USER_HOME=`pwd`/.gradle
 
 build:
-  <<: *job_common_config
   stage: build
-  image: "maven:3-jdk-8"
+  script: ./gradlew sonarqube \
+      -Dsonar.projectKey=ssc_code-generator_tsie-code-generator_AYa7blWWVaQfVjXapow2 \
+      -Dsonar.host.url=http://9000.gr5e4fc6.01pxwbcl.57488d.grapps.cn \
+      -Dsonar.login=77c9036fbfc330de78bc67ae3dd0b1beaf62bb19
   cache:
-    key: tsie-scc-common
+    key: "$CI_COMMIT_REF_NAME"
+    policy: push
     paths:
-      - .m2/repository/
-  script:
-    - mvn sonar:sonar \
-       -Dsonar.projectKey=ssc_code-generator_tsie-code-generator_AYa7blWWVaQfVjXapow2 \
-       -Dsonar.host.url=http://9000.gr5e4fc6.01pxwbcl.57488d.grapps.cn \
-       -Dsonar.login=77c9036fbfc330de78bc67ae3dd0b1beaf62bb19
+      - build
+      - .gradle
+
