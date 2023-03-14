@@ -44,13 +44,6 @@ date.toString("yyyy-MM-dd HH:mm:ss") = ${date.toString("yyyy-MM-dd HH:mm:ss")}
 date.now().toString("yyyy-MM-dd HH:mm:ss") = ${date.now().toString("yyyy-MM-dd HH:mm:ss")}
 
 ===================================================
-include "file-name.ext" OR include "/file-name.ext"
-the file must at:
-1. "{project.dir}/.idea/generator/templates"
-2. "{project.dir}/generator/templates"
-3. "{idea.config.path}/extensions/com.tsintergy.ssc.database.generator/generator/templates"
-
-===================================================
 entity.packages = "${entity.packages}"
 entity.packages.entity = ${entity.packages.entity}
 entity.packages.entity.pack = ${entity.packages.entity.pack}
