@@ -18,7 +18,7 @@
 
 ## 模板内变量说明
 ### `settings` 基础设置信息变量
-Type: `Object` Class: `config.com.tsintergy.ssc.Settings`
+Type: `Object` Class: `com.tsintergy.ssc.config.Settings`
 
 |字段/方法|类型|说明|
 | ----|----|----|
@@ -39,7 +39,7 @@ Type: `Object` Class: `config.com.tsintergy.ssc.Settings`
 
 ### `developer` 开发者信息变量
 
-Type: `Object` Class: `config.com.tsintergy.ssc.Developer`
+Type: `Object` Class: `com.tsintergy.ssc.config.Developer`
 
 |字段/方法|类型|说明|
 | ----|----|----|
@@ -50,7 +50,7 @@ Type: `Object` Class: `config.com.tsintergy.ssc.Developer`
 
 ### `gen` 当前文件类型配置对象
 
-Type: `Object` Class: `vo.com.tsintergy.ssc.Variable`
+Type: `Object` Class: `com.tsintergy.ssc.vo.Variable`
 
 |字段/方法|类型|说明|
 | ----|----|----|
@@ -97,7 +97,7 @@ Type: `Object` Class: `vo.com.tsintergy.ssc.Variable`
 
 ### `table` 数据库表信息变量
 
-Type: `Object` Class: `impl.vo.com.tsintergy.ssc.TableImpl` 实现了 `vo.com.tsintergy.ssc.ITable` 接口
+Type: `Object` Class: `com.tsintergy.ssc.vo.impl.TableImpl` 实现了 `com.tsintergy.ssc.vo.ITable` 接口
 
 |字段/方法|类型|说明|
 | ----|----|----|
@@ -109,7 +109,7 @@ Type: `Object` Class: `impl.vo.com.tsintergy.ssc.TableImpl` 实现了 `vo.com.ts
 
 ### `columns` 数据库表字段列表变量
 
-Type: `List` Class: `impl.vo.com.tsintergy.ssc.TableColumnImpl` 实现了 `vo.com.tsintergy.ssc.ITableColumn` 接口
+Type: `List` Class: `com.tsintergy.ssc.vo.impl.TableColumnImpl` 实现了 `com.tsintergy.ssc.vo.ITableColumn` 接口
 
 |字段/方法|类型|说明|
 | ----|----|----|
@@ -126,7 +126,7 @@ Type: `List` Class: `impl.vo.com.tsintergy.ssc.TableColumnImpl` 实现了 `vo.co
 
 ### `entity` 实体类信息变量
 
-Type: `Object` Class: `impl.vo.com.tsintergy.ssc.EntityImpl` 实现了 `vo.com.tsintergy.ssc.IEntity` 接口
+Type: `Object` Class: `com.tsintergy.ssc.vo.impl.EntityImpl` 实现了 `com.tsintergy.ssc.vo.IEntity` 接口
 
 |字段/方法|类型|说明|
 | ----|----|----|
@@ -139,7 +139,7 @@ Type: `Object` Class: `impl.vo.com.tsintergy.ssc.EntityImpl` 实现了 `vo.com.t
 
 ### `fields` 实体对象字段列表信息变量
 
-Type: `List` Class: `impl.vo.com.tsintergy.ssc.EntityFieldImpl` 实现了 `vo.com.tsintergy.ssc.IEntityField` 接口
+Type: `List` Class: `com.tsintergy.ssc.vo.impl.EntityFieldImpl` 实现了 `com.tsintergy.ssc.vo.IEntityField` 接口
 
 |字段/方法|类型|说明|
 | ----|----|----|
@@ -155,7 +155,7 @@ Type: `List` Class: `impl.vo.com.tsintergy.ssc.EntityFieldImpl` 实现了 `vo.co
 
 ### `primary` 主键Java字段、数据库列对象信息变量
 
-Type: `Object` Class: `impl.vo.com.tsintergy.ssc.PrimaryInfo` 
+Type: `Object` Class: `com.tsintergy.ssc.vo.impl.PrimaryInfo` 
 
 | 字段/方法 | 类型                     | 说明                                                         |
 | --------- | ------------------------ | ------------------------------------------------------------ |
@@ -169,7 +169,7 @@ Type: `Object` Class: `impl.vo.com.tsintergy.ssc.PrimaryInfo`
 ## 模板其他相关对象说明
 
 ### `IName` 名称接口
-Class: `vo.com.tsintergy.ssc.IName`
+Class: `com.tsintergy.ssc.vo.IName`
 
 |字段/方法|类型|说明|
 | ----|----|----|
@@ -181,7 +181,7 @@ Class: `vo.com.tsintergy.ssc.IName`
 
 ### `EntityName` 实体类名称对象（不含后缀）
 
-Class: `impl.vo.com.tsintergy.ssc.EntityName` 实现了 `vo.com.tsintergy.ssc.IName` 接口
+Class: `com.tsintergy.ssc.vo.impl.EntityName` 实现了 `com.tsintergy.ssc.vo.IName` 接口
 
 |字段/方法|类型|说明|
 | ----|----|----|
@@ -199,7 +199,7 @@ Class: `impl.vo.com.tsintergy.ssc.EntityName` 实现了 `vo.com.tsintergy.ssc.IN
 
 ### `EntityNameInfo` 实体类名称信息对象（含后缀）
 
-Class: `impl.vo.com.tsintergy.ssc.EntityNameInfo` 实现了 `vo.com.tsintergy.ssc.IName` 接口
+Class: `com.tsintergy.ssc.vo.impl.EntityNameInfo` 实现了 `com.tsintergy.ssc.vo.IName` 接口
 
 | 字段/方法    | 类型   | 说明                                       |
 | ------------ | ------ | ------------------------------------------ |
@@ -212,7 +212,7 @@ Class: `impl.vo.com.tsintergy.ssc.EntityNameInfo` 实现了 `vo.com.tsintergy.ss
 
 ### `EntityPackage` 实体类包对象
 
-Class: `impl.vo.com.tsintergy.ssc.EntityPackage`
+Class: `com.tsintergy.ssc.vo.impl.EntityPackage`
 
 |字段/方法|类型|说明|
 | ----|----|----|
@@ -228,7 +228,7 @@ Class: `impl.vo.com.tsintergy.ssc.EntityPackage`
 
 ### `EntityPackageInfo` 实体类包信息对象
 
-Class: `impl.vo.com.tsintergy.ssc.EntityPackageInfo`
+Class: `com.tsintergy.ssc.vo.impl.EntityPackageInfo`
 
 |字段/方法|类型|说明|
 | ----|----|----|
@@ -240,7 +240,7 @@ Class: `impl.vo.com.tsintergy.ssc.EntityPackageInfo`
 
 ### `FieldNameInfo` 字段名称信息对象
 
-Class: `impl.vo.com.tsintergy.ssc.FieldNameInfo` 实现了 `vo.com.tsintergy.ssc.IName` 接口
+Class: `com.tsintergy.ssc.vo.impl.FieldNameInfo` 实现了 `com.tsintergy.ssc.vo.IName` 接口
 
 | 字段/方法    | 类型   | 说明                           |
 | ------------ | ------ | ------------------------------ |

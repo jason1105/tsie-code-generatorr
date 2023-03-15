@@ -227,15 +227,19 @@ public class Main extends JFrame {
         projectPathField.getTextField().getDocument().addDocumentListener(documentListener);
         javaPathField.getDocument().addDocumentListener(documentListener);
         sourcesPathField.getDocument().addDocumentListener(documentListener);
+        projectPathField.setText(findProjectPath());
+    }
 
+    private String findProjectPath() {
         String projectPath = settings.getProjectPath();
         if (StringUtils.isBlank(projectPath)) {
             projectPath = PluginUtils.getProject().getBasePath();
         }
-        projectPathField.setText(projectPath);
+        return projectPath;
     }
 
     private void refreshMainConfig(){
+        projectPathField.setText(findProjectPath());
         javaPathField.setText(settings.getJavaPath());
         sourcesPathField.setText(settings.getSourcesPath());
     }

@@ -22,16 +22,6 @@
 
 
 
-## 注意事项
-
-**版本 `v2.7.0` 对配置文件产生了破坏性变更，由原来的 `config/*.json` JSON格式配置文件改为 `config.yml` YAML配置文件** 
-
-**在旧版本升级后，原来的 `config/*.json` 配置文件将失效，请参照 `src/main/resources/config.yml` 文件重制你自定义的配置文件**
-
-**也可以删除本地的 `init.properties` 文件然后重新生成配置文件，但请注意备份您的自定义模板文件**
-
-
-
 ## 截图
 
 ![](./doc/assets/images_1.png)
