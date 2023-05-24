@@ -19,13 +19,15 @@ build:
   tags:
     - pages-share
   script: ./gradlew sonarqube \
-      -Dsonar.projectKey=ssc_code-generator_tsie-code-generator_AYa7blWWVaQfVjXapow2 \
+      -Dsonar.projectKey=ssc_tools_idea-plugins_tsie-code-generator_AYhNGgWHhizaQ_UPRZGA \
       -Dsonar.host.url=http://9000.gr5e4fc6.01pxwbcl.57488d.grapps.cn \
-      -Dsonar.login=77c9036fbfc330de78bc67ae3dd0b1beaf62bb19
+      -Dsonar.login=d939c9ea4d493f5faaadb3f76b58fe1f641448b4
   cache:
-    key: "$CI_COMMIT_REF_NAME"
-    policy: push
+    key: "gradle_cache"
     paths:
       - build
       - .gradle
+  rules:
+    - if: $CI_PIPELINE_SOURCE == 'merge_request_event'
+  allow_failure: true
 
