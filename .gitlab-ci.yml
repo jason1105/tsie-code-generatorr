@@ -1,27 +1,20 @@
-# This file is a template, and might need editing before it works on your project.
-# This is the Gradle build system for JVM applications
-# https://gradle.org/
-# https://github.com/gradle/gradle
 image: gradle:alpine
 
-# Disable the Gradle daemon for Continuous Integration servers as correctness
-# is usually a priority over speed in CI environments. Using a fresh
-# runtime for each build is more reliable since the runtime is completely
-# isolated from any previous builds.
 variables:
   GRADLE_OPTS: "-Dorg.gradle.daemon=false"
 
 before_script:
-  - export GRADLE_USER_HOME=`pwd`/.gradle
+  - GRADLE_USER_HOME="$(pwd)/.gradle"
+  - export GRADLE_USER_HOME
 
 build:
   stage: build
   tags:
     - pages-share
-  script: ./gradlew sonarqube \
-      -Dsonar.projectKey=ssc_tools_idea-plugins_tsie-code-generator_AYhNGgWHhizaQ_UPRZGA \
-      -Dsonar.host.url=http://9000.gr5e4fc6.01pxwbcl.57488d.grapps.cn \
-      -Dsonar.login=d939c9ea4d493f5faaadb3f76b58fe1f641448b4
+  script: "gradle sonarqube \
+            -Dsonar.projectKey=ssc_tools_idea-plugins_tsie-code-generator_AYhNGgWHhizaQ_UPRZGA \
+            -Dsonar.host.url=http://9000.grd2bd63.01pxwbcl.57488d.grapps.cn \
+            -Dsonar.login=d939c9ea4d493f5faaadb3f76b58fe1f641448b4"
   cache:
     key: "gradle_cache"
     paths:
