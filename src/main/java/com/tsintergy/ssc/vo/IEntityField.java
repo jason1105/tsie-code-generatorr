@@ -1,6 +1,6 @@
 package com.tsintergy.ssc.vo;
 
-import com.intellij.database.model.DataType;
+import com.intellij.database.types.DasType;
 
 /**
  * 实体类字段信息
@@ -33,7 +33,7 @@ public interface IEntityField {
      *
      * @return 字段类型信息
      */
-    DataType getDataType();
+    DasType getDataType();
 
     /**
      * 获得字段类型名称（长名称、完整名称）

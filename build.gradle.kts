@@ -1,5 +1,5 @@
 plugins {
-    id("org.jetbrains.intellij") version "1.1.2"
+    id("org.jetbrains.intellij") version "1.13.3"
     id("org.kordamp.gradle.markdown") version "2.2.0"
     id("io.freefair.lombok") version "6.4.3"
     java
@@ -9,12 +9,12 @@ plugins {
 }
 
 // intellij 版本（编译环境版本）
-val intellijVersion = findProperty("intellijVersion") ?: System.getenv("intellijVersion") ?: "2020.2"
+val intellijVersion = findProperty("intellijVersion") ?: System.getenv("intellijVersion") ?: "2023.1.2"
 // intellij 上传插件 Token
 val intellijPublishToken = findProperty("intellijPublishToken") ?: System.getenv("intellijPublishToken")
 
 group = "com.tsintergy"
-version = "0.1.1"
+version = "0.1.2"
 
 println(">>> PROJECT INFO : $group --> { intellij-version = IU-$intellijVersion, plugin-version = $version }")
 
@@ -96,14 +96,30 @@ tasks.patchPluginXml {
     dependsOn("markdownToHtml")
     pluginId.set("com.tsintergy.ssc.database.generator")
     //最小支持版本
-    sinceBuild.set("193")
+    sinceBuild.set("223")
     // 最大支持版本
-//    setUntilBuild(null)
+    untilBuild.set("232")
 }
 
 tasks.markdownToHtml {
     sourceDir = file("doc/plugin")
     outputDir = file("$buildDir/gen-html")
+}
+
+tasks.runPluginVerifier {
+    ideVersions.set(listOf("IU-2019.3.5",
+        "IU-2020.1.4",
+        "IU-2020.2.4",
+        "IU-2020.3.4",
+        "IU-2021.1.3",
+        "IU-2021.2.4",
+        "IU-2021.3.3",
+        "IU-2022.1.4",
+        "IU-2022.2.5",
+        "IU-2022.3.3",
+        "IU-2023.1.2",
+        "IU-2023.2"))
+
 }
 
 /**

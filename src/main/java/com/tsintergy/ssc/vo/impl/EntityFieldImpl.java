@@ -1,5 +1,6 @@
 package com.tsintergy.ssc.vo.impl;
 
+import com.intellij.database.types.DasType;
 import com.tsintergy.ssc.model.TableColumnType;
 import com.tsintergy.ssc.util.PluginUtils;
 import com.tsintergy.ssc.vo.IEntityField;
@@ -23,7 +24,7 @@ import org.apache.commons.lang.StringUtils;
 public class EntityFieldImpl implements IEntityField {
     private final FieldNameInfo name;
     private final String typeName;
-    private final DataType dataType;
+    private final DasType dataType;
     private final String fullTypeName;
     private final boolean primaryKey;
     @Setter
@@ -47,8 +48,8 @@ public class EntityFieldImpl implements IEntityField {
 
     public EntityFieldImpl(DasColumn dbColumn) {
         this.name = new FieldNameInfo(dbColumn);
-        this.dataType = dbColumn.getDataType();
-        String typeName = ReflectionUtil.getField(DataType.class, dataType, String.class, "typeName");
+        this.dataType = dbColumn.getDasType();
+        String typeName = ReflectionUtil.getField(DasType.class, dataType, String.class, "typeName");
         TableColumnType columnType = type(typeName);
         this.typeName = columnType.getShortName();
         this.fullTypeName = columnType.getLongName();

@@ -62,7 +62,6 @@
             <constraints/>
             <properties>
               <enabled value="false"/>
-              <icon value="actions/refresh.png"/>
               <text value=""/>
               <verticalAlignment value="0"/>
             </properties>
