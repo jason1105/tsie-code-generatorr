@@ -1,7 +1,7 @@
 package com.tsintergy.ssc.vo.impl;
 
 import com.intellij.database.model.DasColumn;
-import com.intellij.database.types.DasType;
+import com.intellij.database.model.DataType;
 import com.intellij.database.util.DasUtil;
 import com.intellij.util.ReflectionUtil;
 import com.tsintergy.ssc.vo.IEntityField;
@@ -14,7 +14,6 @@ import org.apache.commons.lang.StringUtils;
 
 /**
  * 数据库表字段信息（数据库表列对象信息）
- *
  */
 @Getter
 public class TableColumnImpl implements ITableColumn {
@@ -27,7 +26,7 @@ public class TableColumnImpl implements ITableColumn {
     private final String name;
     private final String comment;
     private final String typeName;
-    private final DasType dataType;
+    private final DataType dataType;
     private final String fullTypeName;
     private final boolean primaryKey;
     @Setter
@@ -51,9 +50,9 @@ public class TableColumnImpl implements ITableColumn {
     public TableColumnImpl(DasColumn dbColumn) {
         this.dbColumn = dbColumn;
         this.name = dbColumn.getName();
-        this.dataType = dbColumn.getDasType();
+        this.dataType = dbColumn.getDasType().toDataType();
         this.fullTypeName = dataType.getSpecification();
-        this.typeName = ReflectionUtil.getField(DasType.class, dataType, String.class, "typeName");
+        this.typeName = ReflectionUtil.getField(DataType.class, dataType, String.class, "typeName");
         this.comment = StringUtils.defaultString(dbColumn.getComment(), "");
         this.primaryKey = DasUtil.isPrimary(dbColumn);
         this.selected = true;

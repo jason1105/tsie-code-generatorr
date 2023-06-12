@@ -1,6 +1,6 @@
 package com.tsintergy.ssc.vo;
 
-import com.intellij.database.types.DasType;
+import com.intellij.database.model.DataType;
 
 /**
  * 数据库表字段信息（数据库表列对象信息）
@@ -33,7 +33,7 @@ public interface ITableColumn {
      *
      * @return 字段类型信息
      */
-    DasType getDataType();
+    DataType getDataType();
 
     /**
      * 获得字段类型名称（长名称、完整名称）

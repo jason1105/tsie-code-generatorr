@@ -1,15 +1,14 @@
 package com.tsintergy.ssc.vo.impl;
 
-import com.intellij.database.types.DasType;
-import com.tsintergy.ssc.model.TableColumnType;
-import com.tsintergy.ssc.util.PluginUtils;
-import com.tsintergy.ssc.vo.IEntityField;
-import com.tsintergy.ssc.vo.ITableColumn;
 import com.google.common.base.CaseFormat;
 import com.intellij.database.model.DasColumn;
 import com.intellij.database.model.DataType;
 import com.intellij.database.util.DasUtil;
 import com.intellij.util.ReflectionUtil;
+import com.tsintergy.ssc.model.TableColumnType;
+import com.tsintergy.ssc.util.PluginUtils;
+import com.tsintergy.ssc.vo.IEntityField;
+import com.tsintergy.ssc.vo.ITableColumn;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -18,13 +17,12 @@ import org.apache.commons.lang.StringUtils;
 
 /**
  * 实体类字段信息
- *
  */
 @Getter
 public class EntityFieldImpl implements IEntityField {
     private final FieldNameInfo name;
     private final String typeName;
-    private final DasType dataType;
+    private final DataType dataType;
     private final String fullTypeName;
     private final boolean primaryKey;
     @Setter
@@ -36,7 +34,12 @@ public class EntityFieldImpl implements IEntityField {
     @Setter
     private boolean selected;
 
-    private EntityFieldImpl(FieldNameInfo name, String typeName, String fullTypeName, boolean primaryKey, String comment, boolean selected) {
+    private EntityFieldImpl(FieldNameInfo name,
+                            String typeName,
+                            String fullTypeName,
+                            boolean primaryKey,
+                            String comment,
+                            boolean selected) {
         this.name = name;
         this.typeName = typeName;
         this.dataType = null;
@@ -48,9 +51,9 @@ public class EntityFieldImpl implements IEntityField {
 
     public EntityFieldImpl(DasColumn dbColumn) {
         this.name = new FieldNameInfo(dbColumn);
-        this.dataType = dbColumn.getDasType();
-        String typeName = ReflectionUtil.getField(DasType.class, dataType, String.class, "typeName");
-        TableColumnType columnType = type(typeName);
+        this.dataType = dbColumn.getDasType().toDataType();
+        String _typeName = ReflectionUtil.getField(DataType.class, dataType, String.class, "typeName");
+        TableColumnType columnType = type(_typeName);
         this.typeName = columnType.getShortName();
         this.fullTypeName = columnType.getLongName();
         this.comment = StringUtils.defaultString(dbColumn.getComment(), "");
@@ -68,7 +71,9 @@ public class EntityFieldImpl implements IEntityField {
      * @return 字段对象
      */
     public static EntityFieldImpl primaryField(String name, String typeName, String fullTypeName, String comment) {
-        FieldNameInfo fieldNameInfo = new FieldNameInfo(name, CaseFormat.LOWER_CAMEL.to(CaseFormat.UPPER_CAMEL, name), name);
+        FieldNameInfo fieldNameInfo = new FieldNameInfo(name,
+            CaseFormat.LOWER_CAMEL.to(CaseFormat.UPPER_CAMEL, name),
+            name);
         return new EntityFieldImpl(fieldNameInfo, typeName, fullTypeName, true, comment, true);
     }
 
