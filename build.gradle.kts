@@ -1,5 +1,5 @@
 plugins {
-    id("org.jetbrains.intellij") version "1.13.3"
+    id("org.jetbrains.intellij") version "1.14.1"
     id("org.kordamp.gradle.markdown") version "2.2.0"
     id("io.freefair.lombok") version "6.4.3"
     java
