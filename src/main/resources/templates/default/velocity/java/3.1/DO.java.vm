@@ -1,4 +1,5 @@
 ${gen.setFilename("${entity.name}DO.java")}
+${gen.setType("entity")}
 // TODO 应该是 pojo 目录而不是 entity 目录
 package ${entity.packages.entity};
 
