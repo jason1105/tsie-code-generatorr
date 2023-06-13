@@ -14,7 +14,7 @@ val intellijVersion = findProperty("intellijVersion") ?: System.getenv("intellij
 val intellijPublishToken = findProperty("intellijPublishToken") ?: System.getenv("intellijPublishToken")
 
 group = "com.tsintergy"
-version = "0.1.2"
+version = "0.1.3"
 
 println(">>> PROJECT INFO : $group --> { intellij-version = IU-$intellijVersion, plugin-version = $version }")
 
