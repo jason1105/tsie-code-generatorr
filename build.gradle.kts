@@ -4,7 +4,7 @@ plugins {
     id("io.freefair.lombok") version "6.4.3"
     java
     idea
-    id("org.sonarqube") version "3.0"
+    id("org.sonarqube") version "4.2.0.3129"
 //    application
 }
 
