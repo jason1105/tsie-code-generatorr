@@ -1,11 +1,11 @@
 package com.tsintergy.ssc.vo.impl;
 
-import com.tsintergy.ssc.vo.IEntityField;
-import com.tsintergy.ssc.vo.ITableColumn;
 import com.intellij.database.model.DasColumn;
 import com.intellij.database.model.DataType;
 import com.intellij.database.util.DasUtil;
 import com.intellij.util.ReflectionUtil;
+import com.tsintergy.ssc.vo.IEntityField;
+import com.tsintergy.ssc.vo.ITableColumn;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -14,7 +14,6 @@ import org.apache.commons.lang.StringUtils;
 
 /**
  * 数据库表字段信息（数据库表列对象信息）
- *
  */
 @Getter
 public class TableColumnImpl implements ITableColumn {
@@ -51,7 +50,7 @@ public class TableColumnImpl implements ITableColumn {
     public TableColumnImpl(DasColumn dbColumn) {
         this.dbColumn = dbColumn;
         this.name = dbColumn.getName();
-        this.dataType = dbColumn.getDataType();
+        this.dataType = dbColumn.getDasType().toDataType();
         this.fullTypeName = dataType.getSpecification();
         this.typeName = ReflectionUtil.getField(DataType.class, dataType, String.class, "typeName");
         this.comment = StringUtils.defaultString(dbColumn.getComment(), "");
