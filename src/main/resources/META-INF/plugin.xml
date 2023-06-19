@@ -25,6 +25,29 @@
       ]]>
     </description>
 
+    <change-notes><![CDATA[
+
+        <p>0.1.2：2023-05-29</p>
+        <ul>
+            <li>Support new version IDEA v2023.1</li>
+        </ul>
+        <ul>
+            <li>适配 IDEA IntelliJ 2023.1</li>
+        </ul>
+        <hr/>
+
+        <p>0.1.1：2023-03-15</p>
+        <ul>
+            <li>Fix issue about Refresh button not working</li>
+            <li>Add functionality of save configuration </li>
+        </ul>
+        <ul>
+            <li>修复 "刷新配置按钮按下后, 项目路径无法复位" 的问题.</li>
+            <li>增加保存配置的功能, 每次打开插件面板生成代码时, 自动加载之前使用的配置.</li>
+        </ul>
+        <hr/>
+    ]]></change-notes>
+
     <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
          on how to target different products -->
     <depends>com.intellij.modules.lang</depends>

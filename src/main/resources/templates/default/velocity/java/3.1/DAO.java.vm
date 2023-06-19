@@ -1,0 +1,18 @@
+${gen.setType("serviceImpl")}
+package ${entity.packages.serviceImpl};
+
+// 一个是 pojo 路径
+import ${entity.packages.entity.full};
+// 一个是 entity service 路径
+import ${entity.packages.entity.full};
+import com.tsieframework.core.base.dao.jpa.BaseJpaDAO;
+import com.tsieframework.core.base.dao.DomainDAO;
+
+/**
+ * Service：${entity.comment}
+ *
+ * @author ${developer.author}
+ */
+@DomainDAO(entityServiceClass = ${entity.name}EntityService.class)
+public interface ${entity.name}DAO extends BaseJpaDAO<${entity.name}DO, String> {
+}
