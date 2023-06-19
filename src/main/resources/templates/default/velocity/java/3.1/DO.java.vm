@@ -1,0 +1,53 @@
+${gen.setFilename("${entity.name}DO.java")}
+${gen.setType("entity")}
+// TODO 应该是 pojo 目录而不是 entity 目录
+package ${entity.packages.entity};
+
+${entity.packages}
+
+import javax.persistence.*;
+import io.swagger.annotations.*;
+import com.tsieframework.core.base.dao.BaseDO;
+
+import lombok.AllArgsConstructor;
+import lombok.AccessLevel;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+/**
+ * 实体类：${entity.comment}#if($table.comment.trim.length gt 0 && $entity.comment != $table.comment) (${table.comment})#end
+ *
+ * @author ${developer.author}
+ */
+@Data
+@Entity
+@Table(name = "${table.name}")
+@ApiModel(description = "${table.comment}")
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@AllArgsConstructor
+public class ${entity.name}DO implements BaseDO {
+#foreach($field in $fields)
+    #if($field.selected)
+    /**
+     * ${field.comment}
+        #if($field.column.comment.trim.length gt 0 && $field.comment != $field.column.comment) * <p>数据库字段说明：${field.column.comment}</p>#end
+     */
+    private ${field.typeName} ${field.name};
+
+    #if ($field.primaryKey)
+    @Id
+    @GenericGenerator(name = DEFAULT_GENERATOR, strategy = DEFAULT_STRATEGY)
+    @GeneratedValue(generator = DEFAULT_GENERATOR)
+    #end
+    @ApiModelProperty(value = "${field.column.comment}")
+    @Column(name = "${field.column.name}")
+    public ${field.typeName} get${field.name.firstUpper}() {
+        return ${field.name};
+    }
+
+    public void set${field.name.firstUpper}(${field.typeName} ${field.name}) {
+        this.${field.name} = ${field.name};
+    }
+    #end
+#end
+}

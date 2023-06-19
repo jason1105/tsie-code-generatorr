@@ -8,6 +8,7 @@ import com.intellij.openapi.project.Project;
 import com.intellij.util.xmlb.XmlSerializerUtil;
 import com.tsintergy.ssc.util.PluginUtils;
 import lombok.Data;
+import org.apache.commons.lang.StringUtils;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -39,19 +40,29 @@ public class ConfigService implements PersistentStateComponent<ConfigService> {
         assert developer != null;
         assert options != null;
         assert settings != null;
+
+        checkProjectPath();
     }
 
     public synchronized void refresh() {
         ConfigVo configVo = PluginUtils.loadConfig();
-        Developer developer = configVo.getDeveloper();
-        Options options = configVo.getOptions();
-        Settings settings = configVo.getSettings();
-        assert developer != null;
-        assert options != null;
-        assert settings != null;
-        BeanUtil.copyProperties(developer, this.developer);
-        BeanUtil.copyProperties(options, this.options);
-        BeanUtil.copyProperties(settings, this.settings);
+        Developer _developer = configVo.getDeveloper();
+        Options _options = configVo.getOptions();
+        Settings _settings = configVo.getSettings();
+        assert _developer != null;
+        assert _options != null;
+        assert _settings != null;
+        BeanUtil.copyProperties(_developer, this.developer);
+        BeanUtil.copyProperties(_options, this.options);
+        BeanUtil.copyProperties(_settings, this.settings);
+
+        checkProjectPath();
+    }
+
+    private void checkProjectPath() {
+        if (StringUtils.isBlank(this.settings.getProjectPath())) {
+            this.settings.setProjectPath(PluginUtils.getProject().getBasePath());
+        }
     }
 
     @Nullable
