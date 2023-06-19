@@ -1,8 +1,9 @@
-${gen.setFilename("${entity.name}DO.java")}
+${gen.setFilename("${entity.name}EntityService.java")}
+${gen.setType("service")}
 // TODO 应该是 api 目录而不是 entity 目录
-package ${entity.packages.entity};
+package ${entity.packages.service};
 
-import ${entity.packages.entity.full};
+import ${entity.packages.service.full};
 import com.tsieframework.core.base.service.EntityService;
 
 /**
